@@ -69,7 +69,9 @@ def validar_query_seguranca(query_sql):
 def executar_query_sql(query_sql):
   """Executa a query SQL no SQLite apenas se aprovada pela validação."""
   try:
-    conn = sqlite3.connect("corporate_data.db")
+    caminho_db = os.path.join(os.path.dirname(__file__), "corporate_data.db")
+
+    conn = sqlite3.connect(caminho_db)
     cursor = conn.cursor()
     cursor.execute(query_sql)
     linhas = cursor.fetchall()
