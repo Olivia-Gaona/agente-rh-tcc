@@ -148,7 +148,7 @@ if prompt := st.chat_input("Digite sua dúvida para o RH corporativo..."):
   with st.chat_message("assistant"):
     with st.spinner("Validando diretrizes de segurança..."):
       res_sql = client.chat.completions.create(
-          model="llama-3.1-8b-instant",
+          model="openai/gpt-oss-120b",
           messages=[
               {"role": "system", "content": SYSTEM_PROMPT_ROBUSTO},
               {"role": "user", "content": prompt_geracao_sql},
@@ -195,7 +195,7 @@ if prompt := st.chat_input("Digite sua dúvida para o RH corporativo..."):
                     """
 
           res_final = client.chat.completions.create(
-              model="llama-3.1-8b-instant",
+              model="openai/gpt-oss-120b",
               messages=[
                   {"role": "system", "content": SYSTEM_PROMPT_ROBUSTO},
                   {"role": "user", "content": prompt_resposta_final},
@@ -209,7 +209,7 @@ if prompt := st.chat_input("Digite sua dúvida para o RH corporativo..."):
       else:
        
         res_direta = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-120b",
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT_ROBUSTO},
                 {"role": "user", "content": prompt},
